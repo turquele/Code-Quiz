@@ -1,22 +1,42 @@
 var questionnaire = [
     {
-        title: "Question 1",
-        answers: ['Answer 1', 'Answer 2','Answer 3','Answer 4'],
-        correct: 'Answer 1',
+        title: "1. An _______ is a special variable, which can hold more than one value",
+        answers: ['string', 'integer','character','array'],
+        correct: 'array',
     },
     {
-        title: "Question 1",
-        answers: ['Answer 1', 'Answer 2','Answer 3','Answer 4'],
-        correct: 'Answer 1',
+        title: "2. It is a common practice to declare arrays with the _________ keyword.",
+        answers: ['var', 'let','const','none of the above'],
+        correct: 'const',
     },
     {
-        title: "Question 1",
-        answers: ['Answer 1', 'Answer 2','Answer 3','Answer 4'],
-        correct: 'Answer 1',
+        title: "3. Spaces and line breaks are not important.",
+        answers: ['TRUE', 'FALSE','Can be true or false','Can not say'],
+        correct: 'TRUE',
     },
     {
-        title: "Question 1",
-        answers: ['Answer 1', 'Answer 2','Answer 3','Answer 4'],
-        correct: 'Answer 1',
+        title: "4. Array indexes start with ______.",
+        answers: ['-1', '0','1','Can not say'],
+        correct: '0',
+    },
+    {
+        title: "5. An _______ is a special variable, which can hold more than one value",
+        answers: ['string', 'integer','character','array'],
+        correct: 'array',
+    },
+    {
+        title: "6. It is a common practice to declare arrays with the _________ keyword.",
+        answers: ['var', 'let','const','none of the above'],
+        correct: 'const',
+    },
+    {
+        title: "7. Spaces and line breaks are not important.",
+        answers: ['TRUE', 'FALSE','Can be true or false','Can not say'],
+        correct: 'TRUE',
+    },
+    {
+        title: "8. Array indexes start with ______.",
+        answers: ['-1', '0','1','Can not say'],
+        correct: '0',
     }
 ]
