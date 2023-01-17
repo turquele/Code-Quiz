@@ -5,6 +5,9 @@ var timerEl = document.getElementById('time');
 var startButton = document.getElementById('start');
 var questionTitle = document.getElementById('question-title');
 var questionChoices = document.getElementById('choices');
+var finalScore = document.getElementById('final-score');
+var initials = document.getElementById('initials');
+var submit = document.getElementById('submit');
 
 var score = 0;
 var questionNumber = 0;
@@ -12,6 +15,8 @@ var questionNumber = 0;
 
 // Functions start game
 startButton.addEventListener('click', function() {
+  score = 0;
+  questionNumber =0;
   welcomeScreen.setAttribute('class', 'hide');
   populateQuestions();
   setTime();
@@ -42,8 +47,9 @@ function setTime() {
   var timerInterval = setInterval(function() {
     secondsLeft--;
     timerEl.textContent = secondsLeft;
-    if(secondsLeft === 0) {
+    if(secondsLeft <= 0) {
       clearInterval(timerInterval);
+      secondsLeft = 0;
       endgame();
     }
   }, 1000);
@@ -52,25 +58,34 @@ function setTime() {
 function endgame() {
   questionsWrapper.setAttribute('class', 'hide');
   bestScoresScreen.setAttribute('class', 'show');
+  finalScore.innerHTML = score;
+  submit.addEventListener("click", function() {
+    console.log(initials.value);
+    localStorage.setItem(initials.value, score);
+    bestScoresScreen.setAttribute('class', 'hide');
+    welcomeScreen.setAttribute('class', 'show');
+
+  });
 }
 
 
 function populateQuestions() {
   if (questionNumber == questionnaire.length) {
     endgame()
-  }
-  questionTitle.innerHTML = questionnaire[questionNumber].title;
-  var anwersPop =`<ul>`;
-  for (let i = 0; i < questionnaire[questionNumber].answers.length; i++) {
-    anwersPop += `<li sel="`;
-    anwersPop += i;
-    anwersPop += `">`;
-    anwersPop += questionChoices.innerHTML=questionnaire[questionNumber].answers[i];
-    anwersPop += `</li>`;
-  }
-  anwersPop += `</ul>`
-  questionChoices.innerHTML = anwersPop
-  }
+  } else {
+    questionTitle.innerHTML = questionnaire[questionNumber].title;
+    var anwersPop =`<ul>`;
+    for (let i = 0; i < questionnaire[questionNumber].answers.length; i++) {
+      anwersPop += `<li sel="`;
+      anwersPop += i;
+      anwersPop += `">`;
+      anwersPop += questionChoices.innerHTML=questionnaire[questionNumber].answers[i];
+      anwersPop += `</li>`;
+    }
+    anwersPop += `</ul>`
+    questionChoices.innerHTML = anwersPop
+  } 
+}
 
   
 
