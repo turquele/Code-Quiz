@@ -14,7 +14,7 @@ Press the Start Game button and try to answer as many questions as possible. Rem
 
 Screenshot:
 
-![image](assets/images/05-javascript-challenge-demo.png)
+![image](assets/images/screenshot.png)
 
 ## Link to a live example
 
