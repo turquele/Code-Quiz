@@ -27,15 +27,31 @@ startButton.addEventListener('click', function() {
     console.log(element.textContent);
     console.log(questionnaire[questionNumber].correct)
     if(element.textContent == questionnaire[questionNumber].correct) {
-      score +=10;
+      //Answer is correct
+      score +=1;
+      var feedback = document.createElement("div");
+      feedback.setAttribute("class", "feedback");
+      feedback.innerHTML="Correct"
+      document.getElementById("questions").appendChild(feedback);
       questionNumber++;
-      console.log(score);
-      populateQuestions();
+      var delay = setTimeout(function(){
+        feedback.remove();
+        populateQuestions();
+      }, 500); 
+      
     }
       else {
+        //Answer is wrong
         secondsLeft -=10;
         questionNumber++;
-        populateQuestions();
+        var feedback = document.createElement("div");
+        feedback.setAttribute("class", "feedback");
+        feedback.innerHTML="False"
+        document.getElementById("questions").appendChild(feedback);
+        var delay = setTimeout(function(){
+          feedback.remove();
+          populateQuestions();
+        }, 500)
       }
   });
 });
@@ -59,6 +75,7 @@ function endgame() {
   questionsWrapper.setAttribute('class', 'hide');
   bestScoresScreen.setAttribute('class', 'show');
   finalScore.innerHTML = score;
+  secondsLeft = 1;
   submit.addEventListener("click", function() {
     console.log(initials.value);
     localStorage.setItem(initials.value, score);
