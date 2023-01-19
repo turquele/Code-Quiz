@@ -20,6 +20,7 @@ for (const key in sortable) {
     }
 }
 
+// PRINTING SCORES
 highscores.innerHTML = listToPrint;
 
 clear.addEventListener("click", function(event) {

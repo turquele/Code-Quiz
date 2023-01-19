@@ -102,15 +102,4 @@ function populateQuestions() {
   } 
 }
 
-  
-
-
-  //call the questions
-  //initiate tge 
-    //For loop to list the questions
-      //Listener for the answer
-      //Logic for the answer
-
-
-  // Funtion to initiate the timer
 
