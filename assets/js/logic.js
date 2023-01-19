@@ -24,8 +24,6 @@ startButton.addEventListener('click', function() {
   //event listener
   questionsWrapper.addEventListener("click", function(event) {
     var element = event.target;
-    console.log(element.textContent);
-    console.log(questionnaire[questionNumber].correct)
     if(element.textContent == questionnaire[questionNumber].correct) {
       //Answer is correct
       score +=1;
@@ -77,11 +75,11 @@ function endgame() {
   finalScore.innerHTML = score;
   secondsLeft = 1;
   submit.addEventListener("click", function() {
+    secondsLeft = 100;
     console.log(initials.value);
     localStorage.setItem(initials.value, score);
     bestScoresScreen.setAttribute('class', 'hide');
     welcomeScreen.setAttribute('class', 'show');
-
   });
 }
 
